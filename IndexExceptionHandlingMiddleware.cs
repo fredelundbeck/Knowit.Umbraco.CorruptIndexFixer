@@ -9,7 +9,7 @@ namespace Knowit.Umbraco.CorruptIndexFixer;
 public class IndexExceptionHandlingMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly ILogger _logger;
+    private readonly ILogger<IndexExceptionHandlingMiddleware> _logger;
 
     private static readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
     private static DateTime? _lastRebuildTime;
@@ -17,7 +17,7 @@ public class IndexExceptionHandlingMiddleware
 
     public IndexExceptionHandlingMiddleware(
         RequestDelegate next,
-        ILogger logger)
+        ILogger<IndexExceptionHandlingMiddleware> logger)
     {
         _next = next;
         _logger = logger;

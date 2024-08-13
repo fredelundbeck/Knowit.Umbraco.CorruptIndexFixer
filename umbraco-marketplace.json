@@ -7,7 +7,7 @@
   },
   "Category": "Search",
   "Description": "This middleware automatically detects and recovers from corrupted Examine indexes in Umbraco applications. It ensures your site's search functionality remains intact by triggering a controlled index rebuild when needed. Easy to integrate and configure, with built-in logging for monitoring rebuild activities.",
-  "DocumentationUrl": "",
+  "DocumentationUrl": "https://github.com/fredelundbeck/Knowit.Umbraco.CorruptIndexFixer",
   "LicenseTypes": [ "Free" ],
   "PackageType": "Package",
   "Tags": [

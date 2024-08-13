@@ -10,13 +10,12 @@
     <PackageId>Knowit.Umbraco.CorruptIndexFixer</PackageId>
     <Product>Knowit.Umbraco.CorruptIndexFixer</Product>
     <Title>Knowit Umbraco CorruptIndexFixer</Title>
-    <Version>1.0.0</Version>
+    <Version>1.0.2</Version>
     <Authors>Frederik Lundbeck Jørgensen</Authors>
     <Company>Knowit Experience København A/S</Company>
-    <Description>
-      This middleware automatically detects and recovers from corrupted Examine indexes in Umbraco applications.
-      It ensures your site's search functionality remains intact by triggering a controlled index rebuild when needed.
-      Easy to integrate and configure, with built-in logging for monitoring rebuild activities.
+    <Description>This middleware automatically detects and recovers from corrupted Examine indexes in Umbraco applications.
+It ensures your site's search functionality remains intact by triggering a controlled index rebuild when needed.
+Easy to integrate and configure, with built-in logging for monitoring rebuild activities.
     </Description>
     <PackageTags>Umbraco plugin package;Umbraco;umbraco-marketplace</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
