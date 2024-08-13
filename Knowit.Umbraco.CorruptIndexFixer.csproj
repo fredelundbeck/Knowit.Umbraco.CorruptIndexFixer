@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ContentTargetFolders>.</ContentTargetFolders>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Knowit.Umbraco.CorruptIndexFixer</PackageId>
+    <Product>Knowit.Umbraco.CorruptIndexFixer</Product>
+    <Title>Knowit Umbraco CorruptIndexFixer</Title>
+    <Version>1.0.0</Version>
+    <Authors>Frederik Lundbeck Jørgensen</Authors>
+    <Company>Knowit Experience København A/S</Company>
+    <Description>
+      This middleware automatically detects and recovers from corrupted Examine indexes in Umbraco applications.
+      It ensures your site's search functionality remains intact by triggering a controlled index rebuild when needed.
+      Easy to integrate and configure, with built-in logging for monitoring rebuild activities.
+    </Description>
+    <PackageTags>Umbraco plugin package;Umbraco;umbraco-marketplace</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="readme.md" Pack="True" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.8.6" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.8.6" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="12.3.10" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="12.3.10" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.2.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.4.1" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties umbraco-marketplace_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  
+</Project>
