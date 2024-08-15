@@ -29,20 +29,20 @@ Easy to integrate and configure, with built-in logging for monitoring rebuild ac
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.8.6" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.8.6" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.0,11.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.0,11.0.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="12.3.10" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="12.3.10" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[11.0.0,13.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[11.0.0,13.0.0)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.2.0" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.4.1" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[13.0.0,14.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0.0,14.0.0)" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties umbraco-marketplace_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

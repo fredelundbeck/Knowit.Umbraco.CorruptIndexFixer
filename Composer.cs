@@ -11,7 +11,7 @@ public class Composer : IComposer
     public void Compose(IUmbracoBuilder builder)
     {
 
-#if NET7_0_OR_GREATER
+#if NET8_0_OR_GREATER
         builder.Services.Configure<UmbracoPipelineOptions>(options =>
             options.AddFilter(
                 new UmbracoPipelineFilter("CorruptIndexHandler", prePipeline: app => app.UseMiddleware<IndexExceptionHandlingMiddleware>())));
