@@ -1,7 +1,9 @@
+using Knowit.Umbraco.CorruptIndexFixer.Models;
 using Lucene.Net.Index;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Umbraco.Cms.Infrastructure.Examine;
 
 namespace Knowit.Umbraco.CorruptIndexFixer;
@@ -11,15 +13,17 @@ public class IndexExceptionHandlingMiddleware
     private readonly RequestDelegate _next;
     private readonly ILogger<IndexExceptionHandlingMiddleware> _logger;
 
+    private readonly CorruptIndexFixerOptions _options;
     private static readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
     private static DateTime? _lastRebuildTime;
-    private static readonly TimeSpan MinRebuildInterval = TimeSpan.FromMinutes(10);
 
     public IndexExceptionHandlingMiddleware(
         RequestDelegate next,
+        IOptions<CorruptIndexFixerOptions> options,
         ILogger<IndexExceptionHandlingMiddleware> logger)
     {
         _next = next;
+        _options = options.Value;
         _logger = logger;
     }
 
@@ -39,12 +43,16 @@ public class IndexExceptionHandlingMiddleware
             {
                 await TryRebuildExamineIndexes(context);
             }
+            else
+            {
+                throw;
+            }
         }
     }
 
     private async Task TryRebuildExamineIndexes(HttpContext context)
     {
-        if (_lastRebuildTime.HasValue && DateTime.Now - _lastRebuildTime < MinRebuildInterval)
+        if (_lastRebuildTime.HasValue && DateTime.Now - _lastRebuildTime < _options.MinimumRebuildInterval)
         {
             _logger.LogInformation("[CorruptIndexFixer] Rebuild attempt skipped - too soon since last rebuild.");
             return;

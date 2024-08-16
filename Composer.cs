@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Knowit.Umbraco.CorruptIndexFixer.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
@@ -10,6 +11,7 @@ public class Composer : IComposer
 {
     public void Compose(IUmbracoBuilder builder)
     {
+        builder.Services.ConfigureOptions<CorruptIndexFixerOptionsSetup>();
 
 #if NET8_0_OR_GREATER
         builder.Services.Configure<UmbracoPipelineOptions>(options =>
